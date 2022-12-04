@@ -1,0 +1,117 @@
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+:root {
+    --main-background: hsl(233, 47%, 7%);
+    --card-background: hsl(244, 38%, 16%);
+    --accent: hsl(277, 64%, 61%);
+    --main-heading-stats: hsl(0, 0%, 100%);
+    --main-paragraph: hsla(0, 0%, 100%, 0.75);
+    --stat-headings: hsla(0, 0%, 100%, 0.6);
+}
+body {
+    background-color: var(--main-background);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Inter', sans-serif;
+}
+main {
+    max-width: 1070px;
+}
+.container {
+    background-color: var(--card-background);
+    display: flex;
+    flex-direction: row-reverse;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+.container .box {
+    padding: 3.5rem 4rem;
+}
+.container .imgs {
+    position: relative;
+}
+.container .imgs img.mob {
+    display: none;
+}
+.container .imgs img.desk {
+    height: 100%;
+    display: block;
+}
+.container .imgs::after {
+    content: "";
+    position: absolute;
+    background-color: var(--accent);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    opacity: 0.5;
+}
+.container .box h1 {
+    color: var(--main-heading-stats);
+}
+.container .box .wrapper span {
+    color: var(--accent);
+}
+.container .box .wrapper p {
+    color: var(--stat-headings);
+    font-size: 15px;
+    margin: 2rem 0 6rem 0;
+    font-weight: 400;
+    line-height: 1.7;
+}
+.container .box .package {
+    display: flex;
+    gap: 45px;
+}
+.container .box .package h2 {
+    color: var(--main-heading-stats);
+}
+.container .box .package span {
+    color: var(--stat-headings);
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 15px;
+}
+@media (max-width: 767px) {
+    body {
+        height: 120vh;
+    }
+    main {
+        padding: 1rem;
+        width: 100%;
+        height: 100%;
+    }
+    .container .imgs::after {
+        position: absolute;
+        width: 100%;
+        left: 0;
+    }
+    .container .imgs img.desk {
+        height: 315px;
+        width: 100%;
+    }
+    .container, .container .box .package {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    .container .box {
+        width: 300px;
+    }
+    .container .imgs img.desk {
+        width: 300px;
+    }
+    .container .box .package {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-content: center;
+    }
+}
